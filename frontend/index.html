@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Records Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">MySQL + Flask + Vanilla JS</p>
+          <h1>Student Records Manager</h1>
+          <p class="lead">
+            Create, edit, review, and remove student records from a clean single-page interface.
+          </p>
+        </div>
+        <div class="status-card">
+          <span class="status-dot"></span>
+          <div>
+            <strong>Live CRUD demo</strong>
+            <p>Connected to the Flask API on the same origin.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel form-panel">
+        <div class="panel-header">
+          <h2 id="formTitle">Add Student</h2>
+          <p id="formHint">Fill out the fields below and save the record.</p>
+        </div>
+        <form id="studentForm" class="form-grid">
+          <input type="hidden" id="studentId" />
+          <label>
+            <span>Name</span>
+            <input id="name" name="name" type="text" placeholder="Ava Thompson" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input id="email" name="email" type="email" placeholder="ava@example.com" required />
+          </label>
+          <label>
+            <span>Course</span>
+            <input id="course" name="course" type="text" placeholder="Computer Science" required />
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary">Save Student</button>
+            <button type="button" id="cancelEdit" class="secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="panel-header table-header">
+          <div>
+            <h2>Records</h2>
+            <p>Current students stored in MySQL.</p>
+          </div>
+          <button type="button" id="refreshBtn" class="secondary">Refresh</button>
+        </div>
+        <div id="message" class="message hidden"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTable">
+              <tr>
+                <td colspan="5" class="empty">Loading students...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
